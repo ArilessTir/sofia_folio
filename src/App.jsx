@@ -1,15 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
 import NavBar from "./components/navbar";
-import Work from "./components/works";
 import "./index.css";
-import Bio from "./components/bio";
+import Home from "./pages/home";
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar />
-      <Work />
-      <Bio />
+      <Home />
     </BrowserRouter>
   );
 }

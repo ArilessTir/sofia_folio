@@ -11,7 +11,7 @@ const NavBar = () => {
   };
 
   return (
-    <nav className="w-full max-w-screen-2xl sm:px-12 px-6 bg-white text-black h-20 flex justify-between items-center">
+    <nav className="w-full mx-auto max-w-screen-2xl sm:px-12 px-6 bg-white text-black h-20 flex justify-between items-center">
       <img className="w-[85px] h-[46px]" src={logo} alt="Logo" />
 
       <ul className="sm:flex sm:space-x-20 hidden">
