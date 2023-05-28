@@ -7,7 +7,7 @@ export default {
         dm: ["DM Serif Text", "serif"],
       },
       backgroundImage: {
-        sofia_header: "url('src/assets/sofia.png')",
+        sofia_header: "url('src/assets/sofia_pro.jpeg')",
         pink: "radial-gradient(50% 50% at 50% 50%, #FF4AAC 0%, rgba(255, 203, 231, 0) 100%)",
       },
     },

@@ -3,6 +3,7 @@ import logo from "../../assets/Union.png";
 import { HashLink } from "react-router-hash-link";
 import { GrLinkedinOption, GrInstagram } from "react-icons/gr";
 import { SiGmail } from "react-icons/si";
+import { gsap } from "gsap";
 
 const NavBar = () => {
   const [burger, setBurger] = useState(false);
@@ -11,6 +12,16 @@ const NavBar = () => {
     setBurger(!burger);
     console.log(burger);
   };
+
+  // useEffect(() => {
+  //   const t1 = gsap.timeline();
+  //   t1.from("nav", {
+  //     y: 50,
+  //     opacity: 0,
+  //     duration: 1,
+  //     delay: 0.1,
+  //   });
+  // }, []);
 
   return (
     <section className="w-full bg-white h-20 fixed z-50 text-md">
@@ -85,12 +96,35 @@ const NavBar = () => {
           </ul>
 
           <div className="flex w-full justify-around items-center mt-20">
-            <GrLinkedinOption
-              size={30}
+            <a
+              className="cursor-pointer"
               href="https://www.linkedin.com/in/sofiahamdi/"
-            />
-            <GrInstagram size={30} href="https://www.instagram.com/sof.h_/" />
-            <SiGmail size={30} href="mailto:sofiahamdi10@gmail.com" />
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+              <GrLinkedinOption size={30} />
+            </a>
+
+            <a
+              className="cursor-pointer"
+              href="https://www.instagram.com/sof.h_/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+              <GrInstagram size={30} />
+            </a>
+
+            <a
+              className="cursor-pointer"
+              href="mailto:sofiahamdi10@gmail.com"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {" "}
+              <SiGmail size={30} />
+            </a>
           </div>
         </div>
       </nav>

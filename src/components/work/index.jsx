@@ -6,6 +6,7 @@ import ambiance from "../../assets/ambiance.png";
 const Work = () => {
   const missions = [
     {
+      id: 0,
       enterprise: rental,
       mission:
         "Designing rental experiences in stores for the #1 sport retailer in France. ",
@@ -15,6 +16,7 @@ const Work = () => {
       ambiance: [],
     },
     {
+      id: 1,
       enterprise: rental,
       mission:
         "Designing rental experiences in stores for the #1 sport retailer in France. ",
@@ -28,7 +30,7 @@ const Work = () => {
     <>
       {missions.map((mission) => {
         return (
-          <div className="md:flex items-center py-5">
+          <div className="md:flex items-center py-5" key={mission.id}>
             <div className="md:w-1/2 w-full space-y-5 py-10 ">
               <img src={mission.enterprise} alt="" />
               <h1 className="text-xl font-bold">{mission.mission}</h1>
@@ -36,7 +38,7 @@ const Work = () => {
               <span className="flex space-x-2 flex-wrap">
                 {" "}
                 {mission.tags.map((tag) => {
-                  return <Tag name={tag} />;
+                  return <Tag name={tag} key={tag} />;
                 })}
               </span>
             </div>

@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
-import sofia from "../../assets/sofia.png";
+import sofia from "../../assets/sofia_pro.jpeg";
 import Work from "../../components/work";
+import gsap from "gsap";
 
 const Home = () => {
+  useEffect(() => {
+    gsap.from(".line span", {
+      y: 50,
+      ease: "power4.out",
+      delay: 1,
+      opacity: 0,
+      stagger: {
+        amount: 0.4,
+      },
+    });
+  }, []);
+
   return (
     <div className="px-10 py-20 w-full mx-auto max-w-screen-2xl">
       <header className="block md:flex">
         <div className="py-20 md:w-1/2 ">
           <h1 className="md:text-2xl text-xl">Hello I'm Sofia,</h1>
-          <p className="py-10  text-3xl md:text-4xl lg:text-5xl max-w-2xl font-dm leading-tight tracking-wider">
+          <div className="line py-10 text-3xl md:text-4xl lg:text-5xl max-w-2xl font-dm leading-tight tracking-wider">
             <span>A Product Designer experienced </span>
             <span>in visual design and prototyping </span>
             <span>curious, inclusive oriented with </span>
             <span>communication & marketing </span>
             <span>background</span>
-          </p>
+          </div>
           <div className="text-lg">
             <div className="flex space-x-2 items-center">
               <BsBoxArrowUpRight />
@@ -33,7 +46,7 @@ const Home = () => {
           {/* bg-sofia_header bg-no-repeat bg-center  */}
           <div
             className="relative mx-auto pl-10 md:pl-0 w-[293px] h-[399px]  md:w-[460px] md:h-[626px] bg-black rounded-[200px]
-                            bg-sofia_header bg-no-repeat bg-center  bg-[length:460px] md:bg-[length:100vh] "
+                            bg-sofia_header bg-no-repeat bg-center  sm:bg-[length:460px] bg-[length:300px]  "
           >
             <div className="absolute top-0 right-20  md:right-36 w-[293px] h-[399px]  md:w-[460px] md:h-[626px] z-[-1] bg-pink rounded-full " />
           </div>
