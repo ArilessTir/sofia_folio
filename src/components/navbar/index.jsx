@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/Union.png";
 import { HashLink } from "react-router-hash-link";
+import { GrLinkedinOption, GrInstagram } from "react-icons/gr";
+import { SiGmail } from "react-icons/si";
 
 const NavBar = () => {
   const [burger, setBurger] = useState(false);
@@ -81,6 +83,15 @@ const NavBar = () => {
             </HashLink>
             <li className="cursor-pointer">RESUME</li>
           </ul>
+
+          <div className="flex w-full justify-around items-center mt-20">
+            <GrLinkedinOption
+              size={30}
+              href="https://www.linkedin.com/in/sofiahamdi/"
+            />
+            <GrInstagram size={30} href="https://www.instagram.com/sof.h_/" />
+            <SiGmail size={30} href="mailto:sofiahamdi10@gmail.com" />
+          </div>
         </div>
       </nav>
     </section>
