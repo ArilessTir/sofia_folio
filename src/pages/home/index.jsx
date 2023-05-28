@@ -7,8 +7,8 @@ import gsap from "gsap";
 
 const Home = () => {
   useEffect(() => {
-    gsap.from(".line span", {
-      y: 50,
+    gsap.from(".line span", 1.8, {
+      y: 100,
       ease: "power4.out",
       delay: 1,
       opacity: 0,
