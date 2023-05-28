@@ -33,7 +33,7 @@ const Work = () => {
               <img src={mission.enterprise} alt="" />
               <h1 className="text-xl font-bold">{mission.mission}</h1>
               <p className="max-w-2xl">{mission.recap}</p>
-              <span className="flex space-x-2">
+              <span className="flex space-x-2 flex-wrap">
                 {" "}
                 {mission.tags.map((tag) => {
                   return <Tag name={tag} />;
