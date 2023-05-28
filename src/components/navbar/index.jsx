@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <section className="w-full bg-white h-20 fixed z-50 text-md">
-      <nav className=" mx-auto max-w-screen-2xl sm:px-12 px-6 text-black h-20 flex justify-between items-center">
+      <nav className=" mx-auto sm:px-12 px-6 text-black h-20 flex justify-between items-center">
         <img className="w-[85px] h-[46px]" src={logo} alt="Logo" />
 
         <ul className="sm:flex sm:space-x-20 hidden">
@@ -70,12 +70,15 @@ const NavBar = () => {
               : "bg-white  top-20 -right-full overflow-y-scroll w-full transition-all min-h-screen absolute z-40 duration-700 "
           }
         >
-          <ul className="pt-20 text-black text-lg space-y-8">
+          <ul className="pt-20 text-black text-lg space-y-8 flex flex-col">
             <HashLink to="#work" smooth onClick={toggleBurger}>
               {" "}
               WORK
             </HashLink>
-            <li className="cursor-pointer">BIO</li>
+            <HashLink to="#bio" smooth onClick={toggleBurger}>
+              {" "}
+              BIO
+            </HashLink>
             <li className="cursor-pointer">RESUME</li>
           </ul>
         </div>
