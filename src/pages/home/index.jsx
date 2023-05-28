@@ -6,7 +6,7 @@ import Work from "../../components/work";
 
 const Home = () => {
   return (
-    <div className="px-10 w-full mx-auto max-w-screen-2xl">
+    <div className="px-10 py-20 w-full mx-auto max-w-screen-2xl">
       <header className="block md:flex">
         <div className="py-20 md:w-1/2 ">
           <h1 className="md:text-2xl text-xl">Hello I'm Sofia,</h1>
