@@ -1,34 +1,42 @@
 import React, { useEffect } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
-import sofia from "../../assets/sofia_pro.jpeg";
 import Work from "../../components/work";
-import gsap from "gsap";
+import { motion } from "framer-motion";
 
 const Home = () => {
-  useEffect(() => {
-    gsap.from(".line span", 1.8, {
-      y: 100,
-      ease: "power4.out",
-      delay: 1,
-      opacity: 0,
-      stagger: {
-        amount: 0.4,
-      },
-    });
-  }, []);
+  const sentences = [
+    { id: 1, txt: "A Product Designer experienced" },
+    { id: 2, txt: "in visual design and prototyping" },
+    { id: 3, txt: "curious, inclusive oriented with" },
+    { id: 4, txt: "communication & marketing" },
+    { id: 5, txt: "background" },
+  ];
 
   return (
     <div className="px-10 py-20 w-full mx-auto max-w-screen-2xl">
       <header className="block md:flex">
         <div className="py-20 md:w-1/2 ">
-          <h1 className="md:text-2xl text-xl">Hello I'm Sofia,</h1>
+          <motion.h1
+            initial={{ y: -50 }}
+            animate={{ y: 0 }}
+            className="md:text-2xl text-xl"
+          >
+            Hello I'm Sofia,
+          </motion.h1>
           <div className="line py-10 text-3xl md:text-4xl lg:text-5xl max-w-2xl font-dm leading-tight tracking-wider">
-            <span>A Product Designer experienced </span>
-            <span>in visual design and prototyping </span>
-            <span>curious, inclusive oriented with </span>
-            <span>communication & marketing </span>
-            <span>background</span>
+            {sentences.map((sentence, id) => {
+              return (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duratiion: 0.3, delay: 0.2 * id }}
+                  key={id}
+                >
+                  {sentence.txt}
+                </motion.div>
+              );
+            })}
           </div>
           <div className="text-lg">
             <div className="flex space-x-2 items-center">
