@@ -28,8 +28,8 @@ const NavBar = () => {
   }, []);
 
   return (
-    <section className="w-full bg-white h-20 fixed z-50 text-md overflow-hidden">
-      <nav className=" mx-auto sm:px-12 px-6 text-black h-20 flex justify-between items-center ">
+    <section className="w-full bg-white h-20 fixed z-50 text-md ">
+      <nav className=" mx-auto sm:px-20 px-6 text-black h-20 flex justify-between items-center ">
         <HashLink to="#" smooth>
           {" "}
           <img className="w-[85px] h-[46px]" src={logo} alt="Logo" />
