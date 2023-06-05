@@ -1,51 +1,72 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
 import Work from "../../components/work";
-import { motion } from "framer-motion";
+import { gsap } from "gsap";
 
 const Home = () => {
-  const sentences = [
-    { id: 1, txt: "A Product Designer experienced" },
-    { id: 2, txt: "in visual design and prototyping" },
-    { id: 3, txt: "curious, inclusive oriented with" },
-    { id: 4, txt: "communication & marketing" },
-    { id: 5, txt: "background" },
-  ];
+  // Use ref to make useefect run once
+  const didLogRef = useRef(false);
+  useEffect(() => {
+    if (didLogRef.current === false) {
+      didLogRef.current = true;
+
+      const tl = gsap.timeline();
+
+      tl.to(".line span ", {
+        y: 0,
+        duration: 0.5,
+        stagger: 0.3,
+      });
+    }
+  }, []);
 
   return (
     <div className="px-10 py-20 w-full mx-auto max-w-screen-2xl">
-      <header className="block md:flex">
+      <header className="block md:flex min-h-screen">
         <div className="py-20 md:w-1/2 ">
-          <motion.h1
-            initial={{ y: -50 }}
-            animate={{ y: 0 }}
-            className="md:text-2xl text-xl"
-          >
-            Hello I'm Sofia,
-          </motion.h1>
-          <div className="line py-10 text-3xl md:text-4xl lg:text-5xl max-w-2xl font-dm leading-tight tracking-wider">
-            {sentences.map((sentence, id) => {
-              return (
-                <motion.div
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duratiion: 0.3, delay: 0.2 * id }}
-                  key={id}
-                >
-                  {sentence.txt}
-                </motion.div>
-              );
-            })}
+          <div className="line md:text-2xl text-xl overflow-hidden">
+            <span className="inline-block transform translate-y-[100%]">
+              Hello I'm Sofia,
+            </span>
           </div>
-          <div className="text-lg">
-            <div className="flex space-x-2 items-center">
-              <BsBoxArrowUpRight />
-              <span>view my resume</span>
+
+          <div className="wrapper py-10 text-3xl md:text-4xl lg:text-5xl max-w-2xl font-dm leading-tight tracking-wider">
+            <div className="line overflow-hidden py-1">
+              <span className="inline-block transform translate-y-[100%] ">
+                A Product Designer experienced{" "}
+              </span>
             </div>
-            <div className="flex space-x-2 items-center">
-              <GrLocation />
-              <span>Lisbon</span>
+            <div className="line overflow-hidden py-1">
+              <span className="inline-block transform translate-y-[100%]">
+                in visual design and prototyping{" "}
+              </span>
+            </div>
+            <div className="line overflow-hidden py-1">
+              <span className="inline-block transform translate-y-[100%]">
+                curious, inclusive oriented with{" "}
+              </span>
+            </div>
+            <div className="line overflow-hidden py-1">
+              <span className="inline-block transform translate-y-[100%]">
+                communication & marketing background{" "}
+              </span>
+            </div>
+          </div>
+
+          <div className="text-lg">
+            <div className="line overflow-hidden py-1 ">
+              <span className="flex space-x-2 items-center  transform translate-y-[100%]">
+                <BsBoxArrowUpRight />
+                <a href="#">view my resume</a>
+              </span>
+            </div>
+
+            <div className="line overflow-hidden py-1 ">
+              <span className="flex space-x-2 items-center  transform translate-y-[100%]">
+                <GrLocation />
+                <a href="#">Lisbon</a>
+              </span>
             </div>
           </div>
         </div>
@@ -54,7 +75,7 @@ const Home = () => {
           {/* bg-sofia_header bg-no-repeat bg-center  */}
           <div
             className="relative mx-auto pl-10 md:pl-0 w-[293px] h-[399px]  md:w-[460px] md:h-[626px] bg-black rounded-[200px]
-                            bg-sofia_header bg-no-repeat bg-center  sm:bg-[length:460px] bg-[length:300px]  "
+                            bg-no-repeat bg-center  sm:bg-[length:460px] bg-[length:300px]  "
           >
             <div className="absolute top-0 right-20  md:right-36 w-[293px] h-[399px]  md:w-[460px] md:h-[626px] z-[-1] bg-pink rounded-full " />
           </div>
@@ -100,15 +121,16 @@ const Home = () => {
             <div className="flex space-x-2 w-full ">
               <button
                 type="button"
+                href="mailto:sofiahamdi10@gmail.com"
                 className="bg-black py-3 px-6 text-white rounded-xl"
               >
                 {" "}
                 Get in touch{" "}
               </button>
-              <div className="flex space-x-2 items-center">
+              <span className="flex space-x-2 items-center ">
                 <BsBoxArrowUpRight />
-                <span>view my resume</span>
-              </div>
+                <a href="#">view my resume</a>
+              </span>
             </div>
           </div>
         </div>

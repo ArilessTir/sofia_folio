@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Tag from "../tags";
 import rental from "../../assets/rental.png";
 import ambiance from "../../assets/ambiance.png";
+import { gsap } from "gsap";
 
 const Work = () => {
   const missions = [
@@ -26,12 +27,37 @@ const Work = () => {
       ambiance: [],
     },
   ];
+
+  // const didLogRef = useRef(false);
+
+  // useEffect(() => {
+  //   if (didLogRef.current === false) {
+  //     didLogRef.current = true;
+
+  //     const tl = gsap.timeline();
+
+  //     tl.to(".left", {
+  //       x: 0,
+  //       duration: 0.5,
+  //       stagger: 0.3,
+  //     });
+  //     tl.to(".right", {
+  //       x: 0,
+  //       duration: 0.5,
+  //       stagger: 0.3,
+  //     });
+  //   }
+  // }, []);
+
   return (
     <>
       {missions.map((mission) => {
         return (
-          <div className="md:flex items-center py-5" key={mission.id}>
-            <div className="md:w-1/2 w-full space-y-5 py-10 ">
+          <div
+            className="md:flex items-center py-5 overflow-hidden"
+            key={mission.id}
+          >
+            <div className="left transform  md:w-1/2 w-full space-y-5 py-10">
               <img src={mission.enterprise} alt="" />
               <h1 className="text-xl font-bold">{mission.mission}</h1>
               <p className="max-w-2xl">{mission.recap}</p>
@@ -42,8 +68,8 @@ const Work = () => {
                 })}
               </span>
             </div>
-            <div className="md:w-1/2 w-full">
-              <img src={ambiance} alt="" className="max-w-full" />
+            <div className="right transform  md:w-1/2 w-full">
+              <img src={ambiance} alt="" className=" max-w-full" />
             </div>
           </div>
         );

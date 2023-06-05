@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import logo from "../../assets/Union.png";
 import { HashLink } from "react-router-hash-link";
 import { GrLinkedinOption, GrInstagram } from "react-icons/gr";
@@ -6,38 +6,48 @@ import { SiGmail } from "react-icons/si";
 import { gsap } from "gsap";
 
 const NavBar = () => {
+  const after_class =
+    "relative after:contents after:bg-black after:w-0 after:h-[2px] after:absolute after:left-0 after:bottom-0 after:transition-all after:duration-500 hover:after:w-full";
   const [burger, setBurger] = useState(false);
-
+  const didLogRef = useRef(false);
   const toggleBurger = () => {
     setBurger(!burger);
     console.log(burger);
   };
 
-  // useEffect(() => {
-  //   const t1 = gsap.timeline();
-  //   t1.from("nav", {
-  //     y: 50,
-  //     opacity: 0,
-  //     duration: 1,
-  //     delay: 0.1,
-  //   });
-  // }, []);
+  useEffect(() => {
+    if (didLogRef.current === false) {
+      didLogRef.current = true;
+      const t1 = gsap.timeline();
+      t1.from("nav", {
+        y: "100%",
+        duration: 0.5,
+        delay: 0,
+      });
+    }
+  }, []);
 
   return (
-    <section className="w-full bg-white h-20 fixed z-50 text-md">
-      <nav className=" mx-auto sm:px-12 px-6 text-black h-20 flex justify-between items-center">
-        <img className="w-[85px] h-[46px]" src={logo} alt="Logo" />
+    <section className="w-full bg-white h-20 fixed z-50 text-md overflow-hidden">
+      <nav className=" mx-auto sm:px-12 px-6 text-black h-20 flex justify-between items-center ">
+        <HashLink to="#" smooth>
+          {" "}
+          <img className="w-[85px] h-[46px]" src={logo} alt="Logo" />
+        </HashLink>
 
-        <ul className="sm:flex sm:space-x-20 hidden">
-          <HashLink to="#work" smooth>
+        <ul className="sm:flex sm:space-x-20 hidden ">
+          <HashLink to="#work" smooth className={after_class}>
             {" "}
             WORK
           </HashLink>
-          <HashLink to="#bio" smooth>
+          <HashLink to="#bio" smooth className={after_class}>
             {" "}
             BIO
           </HashLink>
-          <li>RESUME</li>
+          <HashLink to="#" smooth className={after_class}>
+            {" "}
+            RESUME
+          </HashLink>
         </ul>
         {/********* Responsive navbar *********/}
         <div className="sm:hidden">
